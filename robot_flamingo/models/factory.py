@@ -10,16 +10,16 @@ from open_flamingo.src.factory import _infer_decoder_layers_attr_name
 
 mpt_dict = {
     "mpt_3b": {
-        "lang_encoder_path": "path_to/mpt-1b-redpajama-200b", 
-        "tokenizer_path": "path_to/mpt-1b-redpajama-200b", 
+        "lang_encoder_path": "mosaicml/mpt-1b-redpajama-200b", 
+        "tokenizer_path": "mosaicml/mpt-1b-redpajama-200b", 
         "cross_attn_every_n_layers": 1,
-        "openflamingo_checkpoint": "path_to/OpenFlamingo-3B-vitl-mpt1b/checkpoint.pt"
+        "openflamingo_checkpoint": "/home/edward/.cache/huggingface/hub/models--openflamingo--OpenFlamingo-3B-vitl-mpt1b/snapshots/ed3a0c3190b2fc2d1c39630738896d4e73ce1bbc/checkpoint.pt"
     }, 
     "mpt_dolly_3b": {
-        "lang_encoder_path": "path_to/mpt-1b-redpajama-200b-dolly", 
-        "tokenizer_path": "path_to/mpt-1b-redpajama-200b-dolly", 
+        "lang_encoder_path": "mosaicml/mpt-1b-redpajama-200b-dolly", 
+        "tokenizer_path": "mosaicml/mpt-1b-redpajama-200b-dolly", 
         "cross_attn_every_n_layers": 1,
-        "openflamingo_checkpoint": "path_to/OpenFlamingo-3B-vitl-mpt1b-langinstruct/checkpoint.pt"
+        "openflamingo_checkpoint": "/home/edward/.cache/huggingface/hub/models--openflamingo--OpenFlamingo-3B-vitl-mpt1b-langinstruct/snapshots/656bbbcd4508db84ccc83c02361011c6fe92ae93/checkpoint.pt"
     },
     "mpt_4b": {
         "lang_encoder_path": "path_to/RedPajama-INCITE-Instruct-3B-v1", 

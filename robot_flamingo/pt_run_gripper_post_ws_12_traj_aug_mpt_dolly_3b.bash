@@ -1,22 +1,20 @@
 #!/bin/bash
-
 export PATH=$PATH:path/to/robot-flamingo/robot_flamingo
 export PYTHONPATH=$PYTHONPATH:path/to/robot-flamingo/robot_flamingo
-
 # dataset path
-calvin_dataset_path='path/to/calvin_data/task_ABCD_D'
+calvin_dataset_path='dataset/calvin_debug_dataset'
 # language model path
-lm_path='path/to/mpt-1b-dolly'
+lm_path='mosaicml/mpt-1b-redpajama-200b'
 # tokenizer path
-tokenizer_path='path/to/mpt-1b-dolly'
+tokenizer_path='mosaicml/mpt-1b-redpajama-200b'
 # openflamingo ckpt path
-openflamingo_checkpoint='path/to/OpenFlamingo-3B-vitl-mpt-1b-dolly/checkpoint.pt'
+openflamingo_checkpoint='/home/edward/.cache/huggingface/hub/models--openflamingo--OpenFlamingo-3B-vitl-mpt1b/snapshots/ed3a0c3190b2fc2d1c39630738896d4e73ce1bbc/checkpoint.pt'
 
 subfix=`date "+%Y%m%d-%H%M"`
 log_file="logs/training_"${subfix}".log"
-source /mnt/bn/robotics/resources/anaconda3_arnold/bin/activate calvin_mpt
+source /home/edward/miniforge3/bin/activate roboflamingo
 #python3 -m torch.distributed.launch --nnodes=1 --nproc_per_node=2  --master_port=6042 robot_flamingo/train/train_calvin.py \
-torchrun --nnodes=1 --nproc_per_node=8 --master_port=6042 robot_flamingo/train/train_calvin.py \
+torchrun --nnodes=1 --nproc_per_node=1 --master_port=6042 robot_flamingo/train/train_calvin.py \
     --report_to_wandb \
     --llm_name mpt_dolly_3b \
     --traj_cons \
