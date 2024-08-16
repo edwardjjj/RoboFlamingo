@@ -40,4 +40,8 @@ torchrun --nnodes=1 --nproc_per_node=1 --master_port=6042 robot_flamingo/train/t
     --learning_rate 1e-4 \
     --save_every_iter 10000 \
     --from_scratch \
-    --window_size 12 > ${log_file} 2>&1
+    --window_size 12 \
+    --report_to_wandb \
+    --wandb_project RoboFlamingo \
+    --wandb_entity aklab > ${log_file} 2>&1
+

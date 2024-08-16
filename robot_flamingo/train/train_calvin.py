@@ -378,6 +378,16 @@ def main():
         if args.residual:
             model.lang_encoder.clone_parameters()
 
+    if args.lora:
+        from peft import LoraConfig, get_peft_model
+        lora_config = LoraConfig(
+                r = 16,
+                lora_alpha = 64,
+                target_modules = ["Wqkv", "out_proj"],
+                lora_dropout = 0.1,
+                bias = "none",
+        )
+        model = get_peft_model(model, lora_config)
     print(
         f"Flamingo model initialized with {sum(p.numel() for p in model.parameters() if p.requires_grad)} trainable parameters"
     )
